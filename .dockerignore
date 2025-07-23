@@ -24,3 +24,5 @@ coverage.xml
 .DS_Store
 *.sqlite
 *.db
+test
+test/*

@@ -3,13 +3,21 @@ version: '3.8'
 services:
   flask-musescore:
     build: .
-    container_name: flask-musescore-app
-    ports:
-      - "8129:8129"
     volumes:
       - ./:/app
       - ./scores:/app/scores
     environment:
-      - FLASK_ENV=development
+      - FLASK_ENV=production
       - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: flask-musescore-lb
+    ports:
+      - "8129:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - flask-musescore
     restart: unless-stopped
