@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  flask-musescore:
+    build: .
+    container_name: flask-musescore-app
+    ports:
+      - "8129:8129"
+    volumes:
+      - ./app:/app
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+  
