@@ -1,3 +1,6 @@
+# Building + Deploying
+docker compose up -d --build --scale flask-musescore=16
+
 # Start with 16 instances
 docker compose up -d --scale flask-musescore=16
 
