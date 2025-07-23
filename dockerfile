@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y \
     libgtk-3-0 \
     libgbm1 \
     libasound2 \
+    procps \
+    tini \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -22,4 +24,6 @@ COPY . .
 EXPOSE 8129
 ENV QT_QPA_PLATFORM=offscreen
 ENV DISPLAY=:99
+ENV PYTHONUNBUFFERED=1
+ENTRYPOINT ["tini", "--"]
 CMD ["python", "app.py"]

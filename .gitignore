@@ -5,6 +5,7 @@ __pycache__
 *.pyc
 *.pyo
 *.pyd
-./*.xml
-./*.midi
-./*.mid
+.vscode
+*.xml
+*.midi
+*.mid
