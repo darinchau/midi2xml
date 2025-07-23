@@ -1,6 +1,21 @@
 # Start with 16 instances
 docker compose up -d --scale flask-musescore=16
 
+# Stop the application
+docker compose down
+
+# Restart the application
+docker compose restart
+
+# View logs
+docker compose logs -f flask-musescore
+
+# Enter the container shell for debugging
+docker compose exec flask-musescore bash
+
+# Rebuild after code changes
+docker compose up --build
+
 # View all logs from all services
 docker compose logs
 
