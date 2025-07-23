@@ -7,9 +7,9 @@ services:
     ports:
       - "8129:8129"
     volumes:
-      - ./app:/app
+      - ./:/app
+      - ./scores:/app/scores
     environment:
       - FLASK_ENV=development
       - PYTHONUNBUFFERED=1
     restart: unless-stopped
-  
